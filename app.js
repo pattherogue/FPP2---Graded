@@ -22,6 +22,13 @@ function encrypt (message, shiftValue)
         return shiftedCharacter
     }
 
+    function getRandomLetter() {
+        //generate random index
+       const randomIndex = Math.floor(Math.random() * alphabet.length);
+       //use index to get a letter
+       return alphabet[randomIndex];
+    }
+
 
   // Your encryption code here
   return encryptedMessage;
