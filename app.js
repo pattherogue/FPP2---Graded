@@ -10,8 +10,9 @@ function encrypt (message, shiftValue)
     letterCounter = 0
 
     //loop that iterates over 'message' parameter
-    for (let i = 0; i < message.length;i++) {
-        
+    for (let i = 0; i < message.length; i++) {
+        //convert lowercase and check if in alphabet string
+        let character = message[i].toLowerCase();
     }
     
     function shiftCharacterToRight(character, shiftValue) {
