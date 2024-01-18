@@ -9,8 +9,8 @@ function encrypt (message, shiftValue)
     //keep track of the number of processed letter
     letterCounter = 0
     
-    function shiftCharacterToRight() {
-        
+    function shiftCharacterToRight(character, shiftValue) {
+        character = character.toLowerCase();
     }
 
 
