@@ -12,8 +12,10 @@ function encrypt (message, shiftValue)
     function shiftCharacterToRight(character, shiftValue) {
         character = character.toLowerCase();
         const index = alphabet.indexOf(character);
-        (index + shiftValue) % alphabet.length
-        return shiftedCharacter;
+        const newIndex = (index + shiftValue) % alphabet.length
+        const shiftedCharacter = alphabet[newIndex];
+
+        return shiftedCharacter
     }
 
 
