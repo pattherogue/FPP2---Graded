@@ -8,6 +8,11 @@ function encrypt (message, shiftValue)
     encryptedMessage = ""
     //keep track of the number of processed letter
     letterCounter = 0
+
+    //loop that iterates over 'message' parameter
+    for (let i = 0; i < message.length;i++) {
+        
+    }
     
     function shiftCharacterToRight(character, shiftValue) {
         //convert character to lower case
