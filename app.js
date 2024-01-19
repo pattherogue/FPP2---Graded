@@ -71,7 +71,16 @@ for(let i = 0; i < encryptedMessage.length; i++) {
 
     let character = encryptedMessage[i].toLowerCase();
     if (alphabet.indexOf(character) !== -1) {
+    //calculate the origianl index by reversing the shift
+    let origianlIndex = (alphabet.indexOf(character) - shiftValue) % alphabetlphabet.length;
 
+    //negative index for wrap-around
+    if (originalIndex < 0) {
+        origianlIndex += alphabet.length
+    }
+
+    //add decrypted character to decryptedMessage
+    decryptedMessage += alphabet[origianlIndex];
     } else {
         decryptedMessage += encryptedMessage[i];
     }
