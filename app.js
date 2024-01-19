@@ -59,7 +59,13 @@ function encrypt(message, shiftValue)
 }
 
 function decrypt (encryptedMessage, shiftValue)
-{
+{ let decryptedMessage = "";
+let skipCounter = 0;
+
+for(let i = 0; i < encryptedMessage.length; i++) {
+    
+}
+
   // Your decryption code here
   return decryptedMessage;
 }
