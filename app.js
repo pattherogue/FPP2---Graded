@@ -32,6 +32,8 @@ function encrypt (message, shiftValue)
             //character is not a letter
             encryptedMessage += message[i];
         }
+
+        return encryptedMessage;
     }
     
     function shiftCharacterToRight(character, shiftValue) {
