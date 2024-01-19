@@ -63,7 +63,13 @@ function decrypt (encryptedMessage, shiftValue)
 let skipCounter = 0;
 
 for(let i = 0; i < encryptedMessage.length; i++) {
-    
+    if(skipCounter === 2) {
+        //skip this character and reset counter
+        skipCounter = 0;
+        continue; //next interation of loop
+    }
+
+    let character = encryptedMessage[i].toLowerCase();
 }
 
   // Your decryption code here
