@@ -18,7 +18,7 @@ function encrypt (message, shiftValue)
             //character is a letter
             let shiftedChar = shiftCharacterToRight(character, shiftValue);
             //append to encryptedMessage
-            encryptedMessage += shiftedChar
+            encryptedMessage += shiftedChar;
             //increment the counter
             letterCounter++;
             //check if two letter have been processed
@@ -27,6 +27,7 @@ function encrypt (message, shiftValue)
                 encryptedMessage += getRandomLetter();
                 //reset counter
                 letterCounter = 0;
+            }
         } else {
             //character is not a letter
             encryptedMessage += message[i];
