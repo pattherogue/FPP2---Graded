@@ -23,6 +23,7 @@ function encrypt (message, shiftValue)
             letterCounter++;
         } else {
             //character is not a letter
+            encryptedMessage += message[i];
         }
     }
     
