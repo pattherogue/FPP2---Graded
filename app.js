@@ -70,6 +70,13 @@ for(let i = 0; i < encryptedMessage.length; i++) {
     }
 
     let character = encryptedMessage[i].toLowerCase();
+    if (alphabet.indexOf(character) !== -1) {
+
+    } else {
+        decryptedMessage += encryptedMessage[i];
+    }
+
+    skipCounter++;
 }
 
   // Your decryption code here
