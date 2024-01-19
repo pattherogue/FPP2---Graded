@@ -1,93 +1,91 @@
 // Starter Code 
-
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 function shiftCharacterToRight(character, shiftValue) {
-    //convert character to lower case
+    // Convert character to lower case
     character = character.toLowerCase();
-    //find index of character in alphabet array
+    // Find index of character in alphabet array
     const index = alphabet.indexOf(character);
-    //find new index 
-    const newIndex = (index + shiftValue) % alphabet.length
-    //find shifted character
+    // Find new index 
+    const newIndex = (index + shiftValue) % alphabet.length;
+    // Find shifted character
     const shiftedCharacter = alphabet[newIndex];
-    //return
-    return shiftedCharacter
+    // Return
+    return shiftedCharacter;
 }
 
 function getRandomLetter() {
-    //generate random index
-   const randomIndex = Math.floor(Math.random() * alphabet.length);
-   //use index to get a letter
-   return alphabet[randomIndex];
+    // Generate random index
+    const randomIndex = Math.floor(Math.random() * alphabet.length);
+    // Use index to get a letter
+    return alphabet[randomIndex];
 }
 
-function encrypt(message, shiftValue)
-//Initialize Variables
-{   //empty string to store final result
-    let encryptedMessage = ""
-    //keep track of the number of processed letter
-    let letterCounter = 0
+function encrypt(message, shiftValue) {
+    // Initialize Variables
+    let encryptedMessage = ""; // Empty string to store final result
+    let letterCounter = 0;     // Keep track of the number of processed letters
 
-    //loop that iterates over 'message' parameter
+    // Loop that iterates over 'message' parameter
     for (let i = 0; i < message.length; i++) {
-        //convert lowercase and check if in alphabet string
+        // Convert lowercase and check if in alphabet string
         let character = message[i].toLowerCase();
-        //if character of alphabet array is present
+        // If character of alphabet array is present
         if (alphabet.indexOf(character) !== -1) {
-            //character is a letter
+            // Character is a letter
             let shiftedChar = shiftCharacterToRight(character, shiftValue);
-            //append to encryptedMessage
+            // Append to encryptedMessage
             encryptedMessage += shiftedChar;
-            //increment the counter
+            // Increment the counter
             letterCounter++;
-            //check if two letter have been processed
+            // Check if two letters have been processed
             if (letterCounter === 2) {
-                //append random letter
+                // Append random letter
                 encryptedMessage += getRandomLetter();
-                //reset counter
+                // Reset counter
                 letterCounter = 0;
             }
         } else {
-            //character is not a letter
+            // Character is not a letter
             encryptedMessage += message[i];
         }
     }
     
-  // Your encryption code here
-  return encryptedMessage;
+    // Return the encrypted message
+    return encryptedMessage;
 }
 
-function decrypt (encryptedMessage, shiftValue)
-{ let decryptedMessage = "";
-let skipCounter = 0;
+function decrypt(encryptedMessage, shiftValue) {
+    let decryptedMessage = "";
+    let skipCounter = 0;
 
-for(let i = 0; i < encryptedMessage.length; i++) {
-    if(skipCounter === 2) {
-        //skip this character and reset counter
-        skipCounter = 0;
-        continue; //next interation of loop
+    for (let i = 0; i < encryptedMessage.length; i++) {
+        if (skipCounter === 2) {
+            // Skip this character and reset counter
+            skipCounter = 0;
+            continue; // Next iteration of loop
+        }
+
+        let character = encryptedMessage[i].toLowerCase();
+        if (alphabet.indexOf(character) !== -1) {
+            // Calculate the original index by reversing the shift
+            let originalIndex = (alphabet.indexOf(character) - shiftValue) % alphabet.length;
+
+            // Handle negative index for wrap-around
+            if (originalIndex < 0) {
+                originalIndex += alphabet.length;
+            }
+
+            // Add decrypted character to decryptedMessage
+            decryptedMessage += alphabet[originalIndex];
+        } else {
+            // Character is not a letter
+            decryptedMessage += encryptedMessage[i];
+        }
+
+        skipCounter++;
     }
 
-    let character = encryptedMessage[i].toLowerCase();
-    if (alphabet.indexOf(character) !== -1) {
-    //calculate the origianl index by reversing the shift
-    let originalIndex = (alphabet.indexOf(character) - shiftValue) % alphabet.length;
-
-    //negative index for wrap-around
-    if (originalIndex < 0) {
-        originalIndex += alphabet.length
-    }
-
-    //add decrypted character to decryptedMessage
-    decryptedMessage += alphabet[originalIndex];
-    } else {
-        decryptedMessage += encryptedMessage[i];
-    }
-
-    skipCounter++;
-}
-
-  // Your decryption code here
-  return decryptedMessage;
+    // Return the decrypted message
+    return decryptedMessage;
 }
