@@ -14,13 +14,19 @@ function encrypt (message, shiftValue)
         //convert lowercase and check if in alphabet string
         let character = message[i].toLowerCase();
         //if character of alphabet array is present
-        if(alphabet.indexOf(character) !== -1) {
+        if (alphabet.indexOf(character) !== -1) {
             //character is a letter
             let shiftedChar = shiftCharacterToRight(character, shiftValue);
             //append to encryptedMessage
             encryptedMessage += shiftedChar
             //increment the counter
             letterCounter++;
+            //check if two letter have been processed
+            if (letterCounter === 2) {
+                //append random letter
+                encryptedMessage += getRandomLetter();
+                //reset counter
+                letterCounter = 0;
         } else {
             //character is not a letter
             encryptedMessage += message[i];
