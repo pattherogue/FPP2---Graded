@@ -89,3 +89,12 @@ function decrypt(encryptedMessage, shiftValue) {
     // Return the decrypted message
     return decryptedMessage;
 }
+
+
+
+//const secretMessage = "Iueuan jrxuq cjythdykwxaj mixkqtaeml ebv wHenckvbkei rqdmt fHukckvi.r Jbxuihus, tmxayiwfuxh sjxau amenhtv 'zQkhhuubyjkit' yjew jhxux mxydatij. zJxmu hvymhihj ajel kldlsuyjb dyju yid uekdh qIbkqsxa xsxqqdvduzb wuqzhdoi qjxwu waueo xjem jfxuy dpuntj dgkvuiwj.";
+const decryptedSecretMessage = decrypt(secretMessage, 42);
+console.log("Decrypted Secret Message:", decryptedSecretMessage);
+
+
+//Decrypted Secret Message: seek the midnight shadow of romulus and remus. there, whisper the word 'aurelius' to the winds. the first to unveil it in our slack channel earns the key to the next quest.
