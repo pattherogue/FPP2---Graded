@@ -2,7 +2,27 @@
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-function encrypt (message, shiftValue)
+function shiftCharacterToRight(character, shiftValue) {
+    //convert character to lower case
+    character = character.toLowerCase();
+    //find index of character in alphabet array
+    const index = alphabet.indexOf(character);
+    //find new index 
+    const newIndex = (index + shiftValue) % alphabet.length
+    //find shifted character
+    const shiftedCharacter = alphabet[newIndex];
+    //return
+    return shiftedCharacter
+}
+
+function getRandomLetter() {
+    //generate random index
+   const randomIndex = Math.floor(Math.random() * alphabet.length);
+   //use index to get a letter
+   return alphabet[randomIndex];
+}
+
+function encrypt(message, shiftValue)
 //Initialize Variables
 {   //empty string to store final result
     encryptedMessage = ""
@@ -32,31 +52,8 @@ function encrypt (message, shiftValue)
             //character is not a letter
             encryptedMessage += message[i];
         }
-
-        return encryptedMessage;
     }
     
-    function shiftCharacterToRight(character, shiftValue) {
-        //convert character to lower case
-        character = character.toLowerCase();
-        //find index of character in alphabet array
-        const index = alphabet.indexOf(character);
-        //find new index 
-        const newIndex = (index + shiftValue) % alphabet.length
-        //find shifted character
-        const shiftedCharacter = alphabet[newIndex];
-        //return
-        return shiftedCharacter
-    }
-
-    function getRandomLetter() {
-        //generate random index
-       const randomIndex = Math.floor(Math.random() * alphabet.length);
-       //use index to get a letter
-       return alphabet[randomIndex];
-    }
-
-
   // Your encryption code here
   return encryptedMessage;
 }
